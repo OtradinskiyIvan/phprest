@@ -1,0 +1,255 @@
+body {
+    background-color: rgb(230, 235, 245);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* контейнер сайта */
+.container {
+    width: 900px;
+    margin: auto;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+/* шапка */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.slogan {
+    color: rgb(102, 102, 102);
+    font-style: italic;
+}
+
+/* меню */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu a {
+    color: rgb(30, 60, 120);
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* показ только выбранного товара */
+.product {
+    display: none;
+}
+
+.product:target {
+    display: block;
+}
+
+/* карточка товара в каталоге */
+.product-card {
+    border: 1px solid rgb(200, 200, 200);
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* заголовки разделов */
+.product-title {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: 400;
+    background-color: rgb(220, 220, 220);
+    padding: 5px;
+}
+
+/* краткое описание */
+.short-description {
+    color: rgb(130, 50, 50);
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* подробное описание */
+.full-description {
+    color: rgb(40, 40, 110);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* характеристики */
+.features {
+    list-style: none;
+    padding-left: 25px;
+}
+
+.features li {
+    background-image: url("img/marker.png");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 25px;
+    color: rgb(20, 100, 60);
+    font-size: 15px;
+}
+
+/* изображения товаров */
+.product-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+/* цена товара */
+.product-price {
+    color: rgb(76, 175, 80);
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* категория товара */
+.product-category-badge {
+    display: inline-block;
+    background-color: rgb(224, 224, 224);
+    color: rgb(51, 51, 51);
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+/* КНОПКИ */
+.button, .add-to-cart, .btn {
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(0, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.btn-primary {
+    background-color: rgb(76, 175, 80);
+    color: rgb(255, 255, 255);
+}
+
+.btn-secondary {
+    background-color: rgb(244, 67, 54);
+    color: rgb(255, 255, 255);
+}
+
+/* КОРЗИНА */
+.cart-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgb(249, 249, 249);
+    border-radius: 10px;
+}
+
+.cart-items {
+    min-height: 100px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.cart-item-info strong {
+    min-width: 200px;
+}
+
+.remove-from-cart {
+    padding: 5px 10px;
+    background-color: rgb(255, 107, 107);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.empty-cart {
+    text-align: center;
+    color: rgb(153, 153, 153);
+    font-style: italic;
+    padding: 20px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.cart-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.cart-buttons .btn {
+    flex: 1;
+}
+
+/* ФИЛЬТР */
+.filter-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.filter-section select {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+    font-size: 14px;
+}
+
+.filter-message {
+    margin-top: 10px;
+    color: rgb(102, 102, 102);
+    font-style: italic;
+}
+
+/* подвал */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+}

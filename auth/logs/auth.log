@@ -1,0 +1,5 @@
+2026-05-03 18:34:08 | ip=127.0.0.1 | login=user | action=SUCCESS_LOGIN
+2026-05-03 18:40:11 | ip=127.0.0.1 | login=user | action=SUCCESS_LOGIN
+2026-05-03 18:42:05 | ip=127.0.0.1 | login=admin | action=SUCCESS_LOGIN
+2026-05-03 18:42:23 | ip=127.0.0.1 | login=user | action=FAIL_LOGIN | reason=invalid
+2026-05-03 18:44:59 | ip=127.0.0.1 | login=newnew | action=FAIL_LOGIN | reason=invalid

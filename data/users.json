@@ -1,0 +1,65 @@
+[
+    {
+        "id": 3,
+        "password_hash": "$2y$10$J5xtD2g6sLLqq\/mHWGDUIObU4KuCzl5zwjAyYKf73VxkIulj4mtj2",
+        "registered": "2026-05-01 17:55:13",
+        "name": "testuser",
+        "email": ""
+    },
+    {
+        "id": 5,
+        "password_hash": "$2y$10$tz5x8KkIIy5xQV78eTDQkerhdEJe.cJtkigy3IeThQKgfvIFKGzze",
+        "registered": "2026-05-01 18:11:09",
+        "name": "new_user",
+        "email": ""
+    },
+    {
+        "id": 1,
+        "name": "admin",
+        "email": "",
+        "password_hash": "$2y$10$jfcsxhf3bjL1nF0HvlKz..5ia4Ghxg5oo38FE40LqKYRS5REwvwKS",
+        "registered": "2026-05-01 18:32:53"
+    },
+    {
+        "id": 2,
+        "name": "user",
+        "email": "",
+        "password_hash": "$2y$10$jfcsxhf3bjL1nF0HvlKz..5ia4Ghxg5oo38FE40LqKYRS5REwvwKS",
+        "registered": "2026-05-01 18:32:53"
+    },
+    {
+        "id": 6,
+        "name": "api_test",
+        "email": "api_test@example.com",
+        "password_hash": "$2y$10$6KaCKAchsDstysVLvR9Ad.YUTaqmXUsfUDQK5t9T3kweegYoLnX4W",
+        "registered": "2026-05-01 18:32:53"
+    },
+    {
+        "id": 9,
+        "password_hash": "$2y$10$\/BdXsjs.VejjGnK8I9lbwuNw5MVOz00XzUY\/QfKXhrxtZPTVPNMMe",
+        "registered": "2026-05-01 18:34:18",
+        "name": "",
+        "email": ""
+    },
+    {
+        "id": 10,
+        "password_hash": "$2y$10$4mZ8SPy4CsUwmHlDOjKUTumz3f4PrvNM6uky\/wNSXR1kZrMwpQcPW",
+        "registered": "2026-05-03 17:13:13",
+        "name": "testmail@mail.com",
+        "email": ""
+    },
+    {
+        "id": 11,
+        "name": "apitestuser",
+        "email": "apitestuser@example.com",
+        "password_hash": "$2y$10$IAHMsliQSP4IgO7lJtTUouP0MDRE1nN4BCZtWB6QNPUEtvRE.Rdp2",
+        "registered": "2026-05-03 17:48:00"
+    },
+    {
+        "id": 12,
+        "password_hash": "$2y$10$Ux.kzDXXgcuqjV8iLOM4G.c02PmQTO1lHeq7rc8BigNgYIX1axjUW",
+        "registered": "2026-05-03 18:42:37",
+        "name": "newnew",
+        "email": ""
+    }
+]
