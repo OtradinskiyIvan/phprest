@@ -1,17 +1,17 @@
 [
     {
         "id": 3,
-        "password_hash": "$2y$10$J5xtD2g6sLLqq\/mHWGDUIObU4KuCzl5zwjAyYKf73VxkIulj4mtj2",
-        "registered": "2026-05-01 17:55:13",
         "name": "testuser",
-        "email": ""
+        "email": "",
+        "password_hash": "$2y$10$J5xtD2g6sLLqq\/mHWGDUIObU4KuCzl5zwjAyYKf73VxkIulj4mtj2",
+        "registered": "2026-05-01 17:55:13"
     },
     {
         "id": 5,
-        "password_hash": "$2y$10$tz5x8KkIIy5xQV78eTDQkerhdEJe.cJtkigy3IeThQKgfvIFKGzze",
-        "registered": "2026-05-01 18:11:09",
         "name": "new_user",
-        "email": ""
+        "email": "",
+        "password_hash": "$2y$10$tz5x8KkIIy5xQV78eTDQkerhdEJe.cJtkigy3IeThQKgfvIFKGzze",
+        "registered": "2026-05-01 18:11:09"
     },
     {
         "id": 1,
@@ -36,17 +36,17 @@
     },
     {
         "id": 9,
-        "password_hash": "$2y$10$\/BdXsjs.VejjGnK8I9lbwuNw5MVOz00XzUY\/QfKXhrxtZPTVPNMMe",
-        "registered": "2026-05-01 18:34:18",
         "name": "",
-        "email": ""
+        "email": "",
+        "password_hash": "$2y$10$\/BdXsjs.VejjGnK8I9lbwuNw5MVOz00XzUY\/QfKXhrxtZPTVPNMMe",
+        "registered": "2026-05-01 18:34:18"
     },
     {
         "id": 10,
-        "password_hash": "$2y$10$4mZ8SPy4CsUwmHlDOjKUTumz3f4PrvNM6uky\/wNSXR1kZrMwpQcPW",
-        "registered": "2026-05-03 17:13:13",
         "name": "testmail@mail.com",
-        "email": ""
+        "email": "",
+        "password_hash": "$2y$10$4mZ8SPy4CsUwmHlDOjKUTumz3f4PrvNM6uky\/wNSXR1kZrMwpQcPW",
+        "registered": "2026-05-03 17:13:13"
     },
     {
         "id": 11,
@@ -57,9 +57,37 @@
     },
     {
         "id": 12,
-        "password_hash": "$2y$10$Ux.kzDXXgcuqjV8iLOM4G.c02PmQTO1lHeq7rc8BigNgYIX1axjUW",
-        "registered": "2026-05-03 18:42:37",
         "name": "newnew",
-        "email": ""
+        "email": "",
+        "password_hash": "$2y$10$Ux.kzDXXgcuqjV8iLOM4G.c02PmQTO1lHeq7rc8BigNgYIX1axjUW",
+        "registered": "2026-05-03 18:42:37"
+    },
+    {
+        "id": 13,
+        "name": "curlauthtest",
+        "email": "curlauthtest@example.com",
+        "password_hash": "$2y$10$uVv8dYJGPF08yDuyBKNJQOMu5fPKqkpB79qm5WAbpcwlBxl57fOre",
+        "registered": "2026-05-03 18:49:43"
+    },
+    {
+        "id": 14,
+        "name": "dupltest",
+        "email": "dupl1@mail.com",
+        "password_hash": "$2y$10$H\/K22XDDUXEhV\/8rjkA6qODk144F.ujAFlvBSwGzKYV9g2M0qEHxi",
+        "registered": "2026-05-03 18:55:18"
+    },
+    {
+        "id": 15,
+        "name": "abc",
+        "email": "abc@mail.com",
+        "password_hash": "$2y$10$ak4ohRRPRXXqjeoPlY4YuOc3d6inKwTeieYGlKxMzJce8Jcc1KmFu",
+        "registered": "2026-05-03 19:05:54"
+    },
+    {
+        "id": 16,
+        "name": "myname",
+        "email": "myemail@mail.com",
+        "password_hash": "$2y$10$kDuceq2\/oV4eM7gGBpBFjuOkRPBIPF7t1NCnmHAxKfU6xcLuKwnba",
+        "registered": "2026-05-03 19:47:08"
     }
 ]

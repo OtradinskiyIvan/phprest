@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $login = trim($_POST['login'] ?? '');
 $password = $_POST['password'] ?? '';
+$email = trim($_POST['email'] ?? '');
 $usersFile = __DIR__ . '/../data/users.json';
 
 // Логирование
@@ -42,6 +43,12 @@ if (strlen($password) < 6) {
     exit;
 }
 
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $writeLog($login, 'FAIL_REGISTER', 'reason=invalid_email');
+    header('Location: /public/auth_form.php?error=invalid_email&tab=register');
+    exit;
+}
+
 // Загрузка динамических пользователей
 $dynamicUsers = [];
 if (file_exists($usersFile)) {
@@ -51,28 +58,75 @@ if (file_exists($usersFile)) {
     }
 }
 
-// Объединяем пользователей: динамические имеют приоритет
-$allUsers = array_merge($users, $dynamicUsers);
+// Приводим динамические данные к списку пользователей
+$normalizedDynamicUsers = [];
+foreach ($dynamicUsers as $key => $userData) {
+    if (!is_array($userData)) {
+        continue;
+    }
+    if (is_string($key) && !isset($userData['name'])) {
+        $userData['name'] = $key;
+    }
+    if (isset($userData['login']) && !isset($userData['name'])) {
+        $userData['name'] = $userData['login'];
+    }
+    $normalizedDynamicUsers[] = [
+        'id' => $userData['id'] ?? 0,
+        'name' => $userData['name'] ?? '',
+        'email' => $userData['email'] ?? '',
+        'password_hash' => $userData['password_hash'] ?? '',
+        'registered' => $userData['registered'] ?? date('Y-m-d H:i:s'),
+    ];
+}
 
 // Проверка существования
-if (isset($allUsers[$login])) {
+$userExists = false;
+$emailExists = false;
+foreach ($normalizedDynamicUsers as $userData) {
+    if (strcasecmp($userData['name'], $login) === 0 || ($userData['email'] !== '' && strcasecmp($userData['email'], $login) === 0)) {
+        $userExists = true;
+        break;
+    }
+    if (strcasecmp($userData['email'], $email) === 0) {
+        $emailExists = true;
+    }
+}
+
+foreach ($users as $userName => $userData) {
+    if (strcasecmp($userName, $login) === 0 || ($userData['email'] ?? '' !== '' && strcasecmp($userData['email'] ?? '', $login) === 0)) {
+        $userExists = true;
+    }
+    if (($userData['email'] ?? '') !== '' && strcasecmp($userData['email'] ?? '', $email) === 0) {
+        $emailExists = true;
+    }
+}
+
+if ($userExists) {
     $writeLog($login, 'FAIL_REGISTER', 'reason=user_exists');
     header('Location: /public/auth_form.php?error=user_exists&tab=register');
     exit;
 }
 
+if ($emailExists) {
+    $writeLog($login, 'FAIL_REGISTER', 'reason=email_exists');
+    header('Location: /public/auth_form.php?error=email_exists&tab=register');
+    exit;
+}
+
 // Создание нового пользователя
-$newId = count($allUsers) + 1;
+$newId = count($users) + count($normalizedDynamicUsers) + 1;
 $newHash = password_hash($password, PASSWORD_DEFAULT);
 
-$dynamicUsers[$login] = [
+$normalizedDynamicUsers[] = [
     'id' => $newId,
+    'name' => $login,
+    'email' => $email,
     'password_hash' => $newHash,
-    'registered' => date('Y-m-d H:i:s')
+    'registered' => date('Y-m-d H:i:s'),
 ];
 
 // Сохранение в файл
-if (@file_put_contents($usersFile, json_encode($dynamicUsers, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) === false) {
+if (@file_put_contents($usersFile, json_encode($normalizedDynamicUsers, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) === false) {
     $writeLog($login, 'FAIL_REGISTER', 'reason=file_save');
     header('Location: /public/auth_form.php?error=server_error&tab=register');
     exit;

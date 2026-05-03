@@ -64,6 +64,10 @@
                     <input type="text" id="reg-login" name="login" required autocomplete="username" minlength="3">
                 </div>
                 <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" name="email" required autocomplete="email">
+                </div>
+                <div class="form-group">
                     <label for="reg-password">Придумайте пароль</label>
                     <input type="password" id="reg-password" name="password" required autocomplete="new-password" minlength="6">
                     <p class="hint">Минимум 6 символов</p>
@@ -101,7 +105,9 @@
             'empty_fields': 'Заполните все поля',
             'auth_required': 'Требуется авторизация',
             'user_exists': 'Пользователь с таким логином уже существует',
-            'short_password': 'Пароль должен содержать минимум 6 символов'
+            'short_password': 'Пароль должен содержать минимум 6 символов',
+            'invalid_email': 'Неверный формат email',
+            'email_exists': 'Пользователь с таким email уже существует'
         };
         
         if (error && errors[error]) {

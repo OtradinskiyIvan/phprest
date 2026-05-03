@@ -57,16 +57,59 @@ if (file_exists($usersFile)) {
     }
 }
 
-// Объединяем пользователей: динамические имеют приоритет
-$allUsers = array_merge($users, $dynamicUsers);
+// Нормализуем всех пользователей в единый список
+$allUsers = [];
+foreach ($users as $userName => $userData) {
+    $allUsers[] = [
+        'id' => $userData['id'] ?? 0,
+        'name' => $userData['name'] ?? $userName,
+        'email' => $userData['email'] ?? '',
+        'password_hash' => $userData['password_hash'] ?? '',
+        'registered' => $userData['registered'] ?? date('Y-m-d H:i:s'),
+    ];
+}
 
-// Проверка пользователя
-if (isset($allUsers[$login]) && password_verify($password, $allUsers[$login]['password_hash'])) {
+foreach ($dynamicUsers as $key => $userData) {
+    if (!is_array($userData)) {
+        continue;
+    }
+
+    if (is_string($key) && !isset($userData['name'])) {
+        $userData['name'] = $key;
+    }
+
+    if (isset($userData['login']) && !isset($userData['name'])) {
+        $userData['name'] = $userData['login'];
+    }
+
+    $allUsers[] = [
+        'id' => $userData['id'] ?? 0,
+        'name' => $userData['name'] ?? '',
+        'email' => $userData['email'] ?? '',
+        'password_hash' => $userData['password_hash'] ?? '',
+        'registered' => $userData['registered'] ?? date('Y-m-d H:i:s'),
+    ];
+}
+
+// Поиск пользователя по имени или email
+$foundUser = null;
+foreach ($allUsers as $user) {
+    if ($user['name'] !== '' && strcasecmp($user['name'], $login) === 0) {
+        $foundUser = $user;
+        break;
+    }
+    if ($user['email'] !== '' && strcasecmp($user['email'], $login) === 0) {
+        $foundUser = $user;
+        break;
+    }
+}
+
+if ($foundUser && password_verify($password, $foundUser['password_hash'])) {
     // Успешный вход
-    $_SESSION['user_id'] = $allUsers[$login]['id'];
-    $_SESSION['login'] = $login;
+    $_SESSION['user_id'] = $foundUser['id'];
+    $_SESSION['login'] = $foundUser['name'];
     
-    $writeLog($login, 'SUCCESS_LOGIN');
+    $writeLog($foundUser['name'], 'SUCCESS_LOGIN');
     
     header('Location: /public/profile.php');
     exit;
