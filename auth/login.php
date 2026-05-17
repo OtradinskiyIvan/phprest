@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $login = trim($_POST['login'] ?? '');
 $password = $_POST['password'] ?? '';
 
-// Функция логирования (локальная, чтобы не было конфликтов)
+// Функция логирования
 $writeLog = function($login, $action, $extra = '') {
     $time = date('Y-m-d H:i:s');
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
@@ -31,13 +31,8 @@ $writeLog = function($login, $action, $extra = '') {
         $line .= ' | ' . $extra;
     }
     $line .= PHP_EOL;
-    
-    $logFile = __DIR__ . '/logs/auth.log';
-    $logDir = dirname($logFile);
-    if (!is_dir($logDir)) {
-        mkdir($logDir, 0755, true);
-    }
-    file_put_contents($logFile, $line, FILE_APPEND);
+
+    file_put_contents(LOG_FILE, $line, FILE_APPEND);
 };
 
 // Валидация

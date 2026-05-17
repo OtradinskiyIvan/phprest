@@ -12,10 +12,10 @@ $users = [
 ];
 
 // Путь к файлу логов
-define('LOG_FILE', __DIR__ . '/logs/auth.log');
+define('LOG_FILE', __DIR__ . '/data/logs/auth.log');
 
-// Создаём папку logs, если нет
-if (!is_dir(__DIR__ . '/logs')) {
-    mkdir(__DIR__ . '/logs', 0755, true);
+// Создаём папку data/logs, если нет
+if (!is_dir(__DIR__ . '/data/logs')) {
+    mkdir(__DIR__ . '/data/logs', 0755, true);
 }
 ?>

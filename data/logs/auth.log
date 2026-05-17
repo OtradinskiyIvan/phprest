@@ -46,3 +46,7 @@
 2026-05-03 19:45:53 | ip=127.0.0.1 | login=test_user | action=LOGOUT
 2026-05-03 19:47:08 | ip=127.0.0.1 | login=myname | action=SUCCESS_REGISTER
 2026-05-03 19:47:17 | ip=127.0.0.1 | login=myname | action=ACCOUNT_DELETED
+2026-05-04 10:18:30 | ip=127.0.0.1 | login=admin | action=LOGOUT
+2026-05-04 10:26:16 | ip=127.0.0.1 | login=admin | action=LOGOUT
+2026-05-17 20:21:23 | ip=127.0.0.1 | login=admin | action=SUCCESS_LOGIN
+2026-05-17 20:21:35 | ip=127.0.0.1 | login=admin | action=LOGOUT
